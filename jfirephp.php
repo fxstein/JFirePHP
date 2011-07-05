@@ -15,23 +15,6 @@ jimport( 'joomla.plugin.plugin' );
 
 class plgSystemJFirePHP extends JPlugin
 {
-	/**
-	 * Constructor
-	 *
-	 * For php4 compatability we must not use the __constructor as a constructor for plugins
-	 * because func_get_args ( void ) returns a copy of all passed arguments NOT references.
-	 * This causes problems with cross-referencing necessary for the observer design pattern.
-	 *
-	 * @access	protected
-	 * @param	object	$subject The object to observe
-	 * @param 	array   $config  An array that holds the plugin configuration
-	 * @since	1.0
-	 */
-	function plgSystemJFirePHP(& $subject, $config)
-	{
-		$this->_db = JFactory::getDBO();
-		parent :: __construct($subject, $config);
-	}
 
 	/**
 	 * onAfterInitialise handler
@@ -42,40 +25,33 @@ class plgSystemJFirePHP extends JPlugin
 	 * @return null
 	 */
 
-	function onAfterInitialise()
+	public function onAfterInitialise()
 	{
-		// php version check to allow usage in php 4.x
-		$phpver = explode(".",phpversion());
-		if (intval($phpver[0])==4) {
-			require_once(JPATH_PLUGINS.DS.'system'.DS.'jfirephp'.DS.'firephpcore'.DS.'fb.php4');
-		} else {
-			require_once(JPATH_PLUGINS.DS.'system'.DS.'jfirephp'.DS.'firephpcore'.DS.'fb.php');
-		}
+		require_once 'jfirephp'.DS.'firephpcore'.DS.'fb.php';
 
 		// JFirePHP is installed and loaed
 		define('JFIREPHP', 1);
 
-		$firephp = FirePHP::getInstance(true);
-
 		// Before doing any checks lets disable logging
-		$firephp->setEnabled(false);
+		FB::setEnabled(false);
 
 		// Check if the integration is set to enabled
-		$enable = $this->params->get('enable', 0);
+		$enable = (bool) $this->params->get('enable', 0);
 
 		// Only turn on if enabled
-		if($enable){
+		if ($enable) {
+
 			// if limited to debug mode, check JDEBUG
-			$limittodebug = $this->params->get('limittodebug', 1);
-			if(!$limittodebug || JDEBUG){
+			$limittodebug = (bool) $this->params->get('limittodebug', 1);
+			if ( $limittodebug == false || JDEBUG) {
 				// We are enabled and either in Debug mode, or it does not matter
-				$firephp->setEnabled(true);
+				FB::setEnabled(true);
 
-				$verbose = $this->params->get('verbose', 0);
+				$verbose = (bool) $this->params->get('verbose', 0);
 
-				if($verbose){
-					$firephp->group('JFirePHP Startup',array('Collapsed' => true,'Color' => '#FF4000'));
-					$firephp->log('JFirePHP enabled! - Verbose Output Mode: ON');
+				if ($verbose) {
+					FB::group('JFirePHP Startup',array('Collapsed' => true,'Color' => '#FF4000'));
+					FB::log('JFirePHP enabled! - Verbose Output Mode: ON');
 				}
 
 				$options = array('maxObjectDepth' => intval($this->params->get('maxObjectDepth', 10)),
@@ -83,29 +59,30 @@ class plgSystemJFirePHP extends JPlugin
 				                 'useNativeJsonEncode' => intval($this->params->get('useNativeJsonEncode', 1)),
 				                 'includeLineNumbers' => intval($this->params->get('includeLineNumbers', 1)));
 
-				$firephp->setOptions($options); // Alternate call syntax: FB::setOptions($options);
+				FB::setOptions($options);
 
-				if($verbose) $firephp->log('JFirePHP: Options Set - maxObjectDepth:'.$options['maxObjectDepth'].
-														 ' maxArrayDepth:'.$options['maxArrayDepth'].
-														 ' useNativeJsonEncode:'.$options['useNativeJsonEncode'].
-														 ' includeLineNumbers:'.$options['includeLineNumbers']);
-
-				$redirectphp = $this->params->get('redirectphp', 0);
-
-				if($redirectphp){
-					// Convert E_WARNING, E_NOTICE, E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE and
-					// E_RECOVERABLE_ERROR errors to ErrorExceptions and send all Exceptions to Firebug automatically
-					$firephp->registerErrorHandler(true);
-					$firephp->registerExceptionHandler();
-					$firephp->registerAssertionHandler(true, false);
-
-					if($verbose) $firephp->log('JFirePHP: E_WARNING, E_NOTICE, E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE and E_RECOVERABLE_ERROR redirected.');
+				if ($verbose) {
+					FB::log('JFirePHP: Options Set - maxObjectDepth:'.$options['maxObjectDepth'].
+							 ' maxArrayDepth:'.$options['maxArrayDepth'].
+							 ' useNativeJsonEncode:'.$options['useNativeJsonEncode'].
+							 ' includeLineNumbers:'.$options['includeLineNumbers']);
 				}
 
-				if($verbose) $firephp->groupEnd();
+				$redirectphp = (bool) $this->params->get('redirectphp', 0);
+
+				if ($redirectphp) {
+					// Convert E_WARNING, E_NOTICE, E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE and
+					// E_RECOVERABLE_ERROR errors to ErrorExceptions and send all Exceptions to Firebug automatically
+					FB::registerErrorHandler(true);
+					FB::registerExceptionHandler();
+					FB::registerAssertionHandler(true, false);
+
+					if($verbose) FB::log('JFirePHP: E_WARNING, E_NOTICE, E_USER_ERROR, E_USER_WARNING, E_USER_NOTICE and E_RECOVERABLE_ERROR redirected.');
+				}
+
+				if ($verbose) FB::groupEnd();
 			}
 		}
 	}
 
 }
-

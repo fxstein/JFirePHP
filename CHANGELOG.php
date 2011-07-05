@@ -28,6 +28,12 @@ Legend:
 ! -> Note
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+JFirePHP 1.0.3
+
+2010-06-17 CirTap
+- PHP4 classes
+^ jfirephp.xml updated to work with Joomla! 1.6
+^ replaced instance calls with static FB::xxx()
 
 JFirePHP 1.0.2
 
