@@ -1,18 +1,4 @@
-/**
-* @version $Id$
-* Kunena Component
-* @package Kunena
-* @Copyright (C) 2010 Kunena All rights reserved
-* @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
-* @link http://www.kunena.com
-**/
-
-JFirePHP README
-
-PLEASE READ THIS ENTIRE FILE BEFORE INSTALLING JFirePHP @kunenaversion@!
-
-OVERVIEW
-============
+## ABOUT
 
 JFirePHP takes FirePHP integration to the next level. JFirePHP is a fully configurable 
 Joomla 1.5 native system plugin that adds FirePHP debugging capabilities to your php software.
@@ -36,8 +22,7 @@ The output for FireBug can be turned off, limited to Joomla debug mode or limite
 usergroups on Joomla. That way even sensitive information about the site can be made available 
 if required, but can only be seen by e.g. Special Users on Joomla. 
 
-IMPORTANT
-============
+## IMPORTANT
 
 Add the firephp/firephp.defines.php to your project. You can either copy the content into 
 your code (e.g. a global defines file) or copy the file into your project. Make sure it is 
@@ -47,14 +32,11 @@ Make sure you use the fb() or FB::* syntax on all FirePHP calls you place into y
 DO NOT include any FirePHP files and classes directly. All of that is performed for you
 as part of JFirePHP.
 
-KNOWN ISSUES
-============
-
-One of the JFirePHP features can be useful but also cause issues with Joomla:
+## KNOWN ISSUES
 
 
-USE
-============
+
+## USE
 
 Once JFirePHP has been installed and the jfirephp.defines.php file has been added to you project
 you can leverage all of the JFirePHP (fb() and FB::*) functionality in your code. See the 
@@ -63,5 +45,3 @@ FirePHP and its usage.
 
 For feedback and support please visit the forums at http://www.kunena.com/jfirephp
 
-END OF README
-=============
