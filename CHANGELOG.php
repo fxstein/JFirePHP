@@ -29,6 +29,11 @@ Legend:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+JFirePHP 1.6.0
+
+05-July-2011 fxstein
+^ [#1] Move README.txt to README.md for better github styling support
+
 JFirePHP 1.0.2
 
 31-January-2010 fxstein

@@ -114,7 +114,7 @@
 		<copy file="${project_dir}/${cfg.name}.php" todir="${tmp_dir}" overwrite="true" filtering="false" />
 		<copy file="${project_dir}/CHANGELOG.php" todir="${tmp_dir}" overwrite="true" filtering="false" />
 		<copy file="${project_dir}/COPYRIGHT.php" todir="${tmp_dir}" overwrite="true" filtering="true" />
-		<copy file="${project_dir}/README.txt" todir="${tmp_dir}" overwrite="true" filtering="true" />
+		<copy file="${project_dir}/README.md" tofile="${tmp_dir}/README.txt" overwrite="true" filtering="true" />
 	</target>
 
 	<target name="tar" depends="package" if="do.tar">
