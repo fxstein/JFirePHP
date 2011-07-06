@@ -35,6 +35,11 @@ JFirePHP 1.6.0
 ^ [#1] Move README.txt to README.md for better github styling support
 ^ [#2] Update version info to 1.6.0
 
+17-Jun-2011 CirTap
+- PHP4 classes
+^ jfirephp.xml updated to work with Joomla! 1.6
+^ replaced instance calls with static FB::xxx()
+
 JFirePHP 1.0.2
 
 31-January-2010 fxstein
