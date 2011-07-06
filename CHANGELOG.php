@@ -33,6 +33,7 @@ JFirePHP 1.6.0
 
 05-July-2011 fxstein
 ^ [#1] Move README.txt to README.md for better github styling support
+^ [#2] Update version info to 1.6.0
 
 JFirePHP 1.0.2
 
