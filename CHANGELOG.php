@@ -29,6 +29,12 @@ Legend:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+JFirePHP 2.5.0
+
+13-February-2012 fxstein
+^ [#5] Update firephpcore to 0.3.2
+^ [#4] Update version to 2.5.0
+
 JFirePHP 1.6.0
 
 05-July-2011 fxstein

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<install version="1.5" type="plugin" group="system" method="upgrade">
+<install version="2.5" type="plugin" group="system" method="upgrade">
 	<name>JFirePHP</name>
 	<creationDate>@kunenaversiondate@</creationDate>
 	<author>Kunena Team</author>
@@ -7,11 +7,11 @@
 	<authorUrl>http://www.kunena.com</authorUrl>
 	<copyright>(c) 2010 Kunena Team, All rights reserved</copyright>
 	<license>GNU/GPL</license>
-	<version>1.6.0</version>
+	<version>2.5.0</version>
 	<versionname>Squash Bug</versionname>
 	<build>@kunenaversionbuild@</build>
 	<description>JFirePHP
-	Joomla 1.6 system plugin to extend JError through FirePHP
+	Joomla 2.5 system plugin to extend JError through FirePHP
 	Output Joomla Errors, Warnings and Notices to FireBug console when in debug mode.
 	For more information about FirePHP see: http://www.firephp.org/HQ/Use.html - FirePHP Headquarters.
 	</description>

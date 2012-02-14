@@ -1,15 +1,15 @@
 ## ABOUT
 
 JFirePHP takes FirePHP integration to the next level. JFirePHP is a fully configurable 
-Joomla 1.5 native system plugin that adds FirePHP debugging capabilities to your php software.
-It allows developers to leverage the power of FirePHP inside of Joomla 1.5, configuring 
+Joomla 2.5 native system plugin that adds FirePHP debugging capabilities to your php software.
+It allows developers to leverage the power of FirePHP inside of Joomla 2.5, configuring 
 the level of integration in the Joomla backend for JFirePHP. 
 
 Simply install the system plugin via the Joomla Extension Manager, make sure it is published.
 Pick the user group level that should be able to see the console messages, set the various 
 plugin options to your individual needs including the FirePHP setup options.
 
-JFirePHP requires Firefox 3.5+ as well as the FireBug 1.5 plugin for Firefox. It leverages the 
+JFirePHP requires Firefox 3.5+ as well as the FireBug plugin for Firefox. It leverages the 
 FireBug console window to display any debugging info you want to show in there.
 
 Simply leverage the FirePHP class FB to call functions like FB::trace, FB::notice, FB::warning,
